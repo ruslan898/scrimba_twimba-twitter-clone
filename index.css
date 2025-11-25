@@ -65,7 +65,7 @@ button{
     color: white;
     padding: 10px 19px;
     border-radius: 20px;
-    width: 100%; 
+    width: 100%;
     cursor: pointer;
     font-size: 20px;
     font-weight: 600;
@@ -90,7 +90,7 @@ button{
     display: flex;
     font-size: 13px;
     justify-content: space-between;
-    width: 160px;
+    width: 100%;
 }
 
 .tweet-detail{
@@ -103,6 +103,15 @@ button{
     padding: 20px 0 0 0px;
     margin: 10px 0 10px 40px;
     width: 80%;
+}
+
+.tweet-delete {
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.tweet-delete:hover {
+    color: red;
 }
 
 .handle{
