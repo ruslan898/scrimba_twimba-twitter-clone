@@ -1,5 +1,28 @@
-import { tweetsData } from './data.js'
+import { tweetsData as initialTweetsData } from './data.js'
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+
+// ====================== Local storage =============================
+
+let tweetsData = loadFromLocalStorage()
+
+function loadFromLocalStorage() {
+    return JSON.parse(localStorage.getItem('tweetsData'))
+}
+
+function saveToLocalStorage() {
+    localStorage.setItem('tweetsData', JSON.stringify(tweetsData))
+}
+
+function resetData() {
+    tweetsData = initialTweetsData
+    render()
+}
+
+const resetBtn = document.querySelector('#reset-btn')
+
+resetBtn.addEventListener('click', resetData)
+
+// ====================================================================
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.like){
@@ -156,7 +179,8 @@ function getFeedHtml(){
    return feedHtml
 }
 
-function render(){
+function render() {
+    saveToLocalStorage()
     document.getElementById('feed').innerHTML = getFeedHtml()
 }
 
